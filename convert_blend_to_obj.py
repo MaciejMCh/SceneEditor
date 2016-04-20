@@ -9,7 +9,7 @@ obj_out = argv[0]
 # # Export scene .dao
 bpy.ops.object.select_all(action='DESELECT')
 bpy.ops.object.select_same_group(group='WorldSpace')
-bpy.ops.wm.collada_export(filepath=obj_out, selected=True)
+bpy.ops.wm.collada_export(filepath=obj_out, selected=True, export_transformation_type_selection='transrotloc')
 
 # Export models into separate .objs
 for object in bpy.data.groups['ModelSpace'].objects:
