@@ -27,7 +27,10 @@ for renderable in renderablesRoot:
 	renderableJson['material'] = renderable.find( './/' + namespace + 'instance_material' ).attrib['symbol'].replace("#", "").replace("-material", "")
 	renderables.append(renderableJson)
 
+jsonResult = {}
+jsonResult['renderables'] = renderables
+print(jsonResult)
 
-json = {}
-json['renderables'] = renderables
-print(json)
+with open('workfile.json', 'w') as f:
+	f.write(json.dumps(jsonResult))
+	f.closed
