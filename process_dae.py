@@ -1,7 +1,14 @@
+import sys
 import xml.etree.ElementTree as etree
 import json
 
-tree = etree.parse('Scene.dae')
+argv = sys.argv
+argv = argv[argv.index("--") + 1:] # get all args after "--"
+ 
+filePath = argv[0]
+assetName = filePath.split("/")[-2]
+
+tree = etree.parse(filePath)
 root = tree.getroot()
 namespace = '{http://www.collada.org/2005/11/COLLADASchema}'
 
@@ -31,6 +38,6 @@ jsonResult = {}
 jsonResult['renderables'] = renderables
 print(jsonResult)
 
-with open('workfile.json', 'w') as f:
+with open(assetName + '/' + assetName + '.json', 'w') as f:
 	f.write(json.dumps(jsonResult))
 	f.closed
