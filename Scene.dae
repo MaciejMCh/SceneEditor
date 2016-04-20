@@ -166,9 +166,9 @@
     <visual_scene id="Scene" name="Scene">
       <node id="Ear" name="Ear" type="NODE">
         <translate sid="location">-0.283453 -2.94174 2.433092</translate>
-        <rotate sid="rotationZ">0 0 1 0</rotate>
-        <rotate sid="rotationY">0 1 0 0</rotate>
-        <rotate sid="rotationX">1 0 0 0</rotate>
+        <rotate sid="rotationZ">0 0 1 2</rotate>
+        <rotate sid="rotationY">0 1 0 3</rotate>
+        <rotate sid="rotationX">1 0 0 4</rotate>
         <scale sid="scale">1 1 1</scale>
         <instance_geometry url="#Cube-mesh" name="Ear">
           <bind_material>
