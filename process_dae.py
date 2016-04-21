@@ -38,6 +38,6 @@ jsonResult = {}
 jsonResult['renderables'] = renderables
 print(jsonResult)
 
-with open(assetName + '/' + assetName + '.json', 'w') as f:
+with open(filePath.replace('.dae', '') + '.json', 'w') as f:
 	f.write(json.dumps(jsonResult))
 	f.closed

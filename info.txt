@@ -1,0 +1,17 @@
+Zalozenia skryptu:
+
+- pliki .blend trzymane przez gita
+- plik konfiguracyjny :
+	- sciezka do plikow blend
+	- sciezka do wygenerowanych assetow
+- skrypt ekportuje assety:
+	sciezki:
+	- /mesh
+	- /material
+	- /scene
+
+	mesh zawiera .obj
+	scene zawiera .json z kolekcja renderable
+	material ma katalogi z o nazwie materialu, w nim .png diffuse, normal, specular etc.
+
+- assety nie sa trzymane przez gita
