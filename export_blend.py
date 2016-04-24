@@ -19,7 +19,7 @@ for scene in bpy.data.scenes:
 		objectJsonObject = {}
 		objectJsonObject['name'] = ob.name
 		objectJsonObject['mesh'] = ob.data.name
-		objectJsonObject['material'] = ob.active_material
+		objectJsonObject['material'] = ob.active_material.name
 		objectJsonObject['transformation'] = {}
 		objectJsonObject['transformation']['position'] = [ob.location.x, ob.location.y, ob.location.z]
 		objectJsonObject['transformation']['rotation'] = [ob.rotation_euler.x, ob.rotation_euler.y, ob.rotation_euler.z]
