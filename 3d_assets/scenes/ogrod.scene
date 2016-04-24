@@ -1,0 +1,1 @@
+{"renderables": [{"material": null, "transformation": {"rotation": [0.0, 0.0, 0.0], "position": [-1.3101732730865479, 4.762913227081299, -1.6645047664642334]}, "mesh": "grzadka", "name": "Plane"}, {"material": null, "transformation": {"rotation": [0.0, 0.0, 0.0], "position": [0.0, 0.0, 0.0]}, "mesh": "romb", "name": "drzwo"}], "name": "ogrod"}
