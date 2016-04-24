@@ -16,6 +16,8 @@ for scene in bpy.data.scenes:
 	objectsJsonArray = []
 	sceneJsonObject['renderables'] = objectsJsonArray
 	for ob in scene.objects:
+		if ob.type != 'MESH':
+			continue
 		objectJsonObject = {}
 		objectJsonObject['name'] = ob.name
 		objectJsonObject['mesh'] = ob.data.name
