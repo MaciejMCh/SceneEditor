@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!export_blend.py
+!make_assets.py
+# etc...
