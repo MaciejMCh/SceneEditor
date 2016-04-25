@@ -10,6 +10,11 @@ resultOutputPath = configuration['assets_output_path']
 blenderAppPath = configuration['blender_app_path']
 
 os.system('mkdir ' + resultOutputPath)
+
+os.system('rm -rf ' + resultOutputPath + '/meshes')
+os.system('rm -rf ' + resultOutputPath + '/scenes')
+os.system('rm -rf ' + resultOutputPath + '/materials')
+
 os.system('mkdir ' + resultOutputPath + '/meshes')
 os.system('mkdir ' + resultOutputPath + '/scenes')
 os.system('mkdir ' + resultOutputPath + '/materials')

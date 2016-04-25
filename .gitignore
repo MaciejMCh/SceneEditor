@@ -5,4 +5,5 @@
 !.gitignore
 !export_blend.py
 !make_assets.py
+!make_assets_on_diff.py
 # etc...
