@@ -1,6 +1,7 @@
 import bpy
 import sys
 import json
+import os
  
 argv = sys.argv
 argv = argv[argv.index("--") + 1:] # get all args after "--"
@@ -39,10 +40,24 @@ bpy.context.screen.scene=bpy.data.scenes['modelSpaceScene']
 for mesh in bpy.data.meshes:
 	modelSpaceObject = bpy.data.objects.new(name=mesh.name, object_data=mesh)
 	modelSpaceScene.objects.link(modelSpaceObject)
-	print(mesh)
 
 # Export models into separate .objs
 for object in bpy.data.meshes:
 	bpy.ops.object.select_pattern(pattern=object.name, extend=False)
 	bpy.ops.export_scene.obj(filepath=storagePath+'meshes/'+object.name+'.obj', use_selection=True, axis_forward='Y', axis_up='Z', use_triangles=True, use_uvs=True, use_materials=False)
-	print(object.name)
+
+for material in bpy.data.materials:
+	os.system('mkdir ' + storagePath + 'materials/' + material.name)
+	for textureSlot in material.texture_slots:
+		if textureSlot:
+			texture = bpy.data.textures[textureSlot.name]
+			image = bpy.data.images[bpy.data.textures[textureSlot.name].image.name]
+			imageName = 'undefined'
+			if textureSlot == material.texture_slots[0]:
+				imageName = 'diffuse'
+			if textureSlot == material.texture_slots[1]:
+				imageName = 'normal'
+			if textureSlot == material.texture_slots[2]:
+				imageName = 'specular'
+			imageFilePath = storagePath + 'materials/' + material.name + '/' + imageName + '.png'
+			image.save_render(filepath=imageFilePath)

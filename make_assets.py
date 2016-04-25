@@ -12,6 +12,7 @@ blenderAppPath = configuration['blender_app_path']
 os.system('mkdir ' + resultOutputPath)
 os.system('mkdir ' + resultOutputPath + '/meshes')
 os.system('mkdir ' + resultOutputPath + '/scenes')
+os.system('mkdir ' + resultOutputPath + '/materials')
 
 # Export .blend
 os.system(blenderAppPath + ' ' + blenderFilePath + ' --background --python export_blend.py -- ' + resultOutputPath)
