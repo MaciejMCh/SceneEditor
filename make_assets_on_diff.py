@@ -9,5 +9,6 @@ blenderFileRepoPath = configuration['blend_file_repo_path']
 
 repo = git.Repo(blenderFileRepoPath)
 blenderFilePathRelativeToRepo = blenderFilePath.replace(blenderFileRepoPath, '')
-if repo.is_dirty(blenderFilePathRelativeToRepo):
-	print os.system('python make_assets.py')
+git = repo.git
+if str(git.status(blenderFilePathRelativeToRepo)).find('clean') == -1:
+	os.system('python make_assets.py')
