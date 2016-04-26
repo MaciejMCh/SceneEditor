@@ -2,14 +2,16 @@ import sys
 import os
 import json
 
-# Read config
-with open('config.json') as configurationPayload:    
-    configuration = json.load(configurationPayload)
-blenderFilePath = configuration['blend_file_path']
-resultOutputPath = configuration['assets_output_path']
-blenderAppPath = configuration['blender_app_path']
+absolutePath = os.path.abspath(__file__).replace(os.path.abspath(__file__).split('/')[-1], '')
 
-os.system('mkdir ' + resultOutputPath)
+# Read config
+with open(os.path.join(absolutePath, 'config.json')) as configurationPayload:    
+    configuration = json.load(configurationPayload)
+blenderFilePath = os.path.join(absolutePath, configuration['blend_file_path'])
+resultOutputPath = os.path.join(absolutePath, configuration['assets_output_path'])
+blenderAppPath = os.path.join(absolutePath, configuration['blender_app_path'])
+
+os.system('mkdir -p' + resultOutputPath)
 
 os.system('rm -rf ' + resultOutputPath + '/meshes')
 os.system('rm -rf ' + resultOutputPath + '/scenes')
@@ -20,4 +22,4 @@ os.system('mkdir ' + resultOutputPath + '/scenes')
 os.system('mkdir ' + resultOutputPath + '/materials')
 
 # Export .blend
-os.system(blenderAppPath + ' ' + blenderFilePath + ' --background --python export_blend.py -- ' + resultOutputPath)
+os.system(blenderAppPath + ' ' + blenderFilePath + ' --background --python ' + os.path.join(absolutePath, 'export_blend.py') + ' -- ' + resultOutputPath)
