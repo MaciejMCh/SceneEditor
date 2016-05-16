@@ -20,6 +20,9 @@ for scene in bpy.data.scenes:
 		if ob.type != 'MESH':
 			continue
 		objectJsonObject = {}
+		objectJsonObject['type'] = 'regular'
+		if ob.Reflective:
+			objectJsonObject['type'] = 'reflective'
 		objectJsonObject['name'] = ob.name
 		objectJsonObject['mesh'] = ob.data.name
 		objectJsonObject['material'] = ob.active_material.name
