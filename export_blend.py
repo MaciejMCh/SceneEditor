@@ -8,6 +8,9 @@ argv = argv[argv.index("--") + 1:] # get all args after "--"
  
 storagePath = argv[0]
 
+# Setup
+bpy.types.Object.Reflective = bpy.props.BoolProperty(name="Reflective")
+
 # Read scenes
 scenesJsonArray = []
 for scene in bpy.data.scenes:
